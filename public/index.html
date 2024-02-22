@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA</title>
+    <base href="../src/">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="assets/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/app.css">
+    <script src="router/router-outlet.js" defer type="module"></script>
+    <script src="router/c-link.js" defer type="module"></script>
+</head>
+<body>
+    <c-link href="/">Home</c-link>
+    <c-link href="/posts">Posts</c-link>
+    <c-link href="/test">Test</c-link>
+
+    <router-outlet></router-outlet>
+    
+    <script src="app.js" type="module"></script>
+    <script src="assets/bootstrap.min.js"></script>
+</body>
+</html>
