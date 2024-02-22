@@ -1,1 +1,1 @@
-# veca-init
+# VECA
