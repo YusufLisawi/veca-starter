@@ -4,7 +4,7 @@
   "description": "Vanilla Environment & Components Architecture",
   "main": "src/app.js",
   "scripts": {
-    "dev": "live-server --entry-file=public/index.html",
+    "dev": "live-server --entry-file=./index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

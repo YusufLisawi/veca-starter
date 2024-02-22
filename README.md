@@ -11,7 +11,7 @@ The `Router` class stands at the core of the VECA framework, orchestrating the a
 To leverage the `Router`, you'll need to start by importing it into your project:
 
 ```javascript
-import { Router } from 'src/router/router.js';
+import { Router } from 'app/router/router.js';
 ```
 
 Next, instantiate the `Router` and define your application's routes:
