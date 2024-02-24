@@ -3,7 +3,6 @@ import CNavbar from "./components/layouts/navbar.js";
 import CTest from "./components/example.js";
 import CPost from "./components/post.js";
 import CPosts from "./components/posts.js";
-import CHome from "./components/home.js";
 import { routerComponents } from "./router/router.js";
 
 // Define the components of the layouts and their tagname
@@ -22,10 +21,6 @@ export const layoutComponents = [
 export const components = [
     ...layoutComponents,
     ...routerComponents,
-    {
-        tagName: 'c-home',
-        component: CHome,
-    },
     {
         tagName: 'c-test',
         component: CTest,
