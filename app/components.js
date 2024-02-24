@@ -7,30 +7,16 @@ import { routerComponents } from "./router/router.js";
 
 // Define the components of the layouts and their tagname
 export const layoutComponents = [
-  {
-    tagName: "c-navbar",
-    component: CNavbar,
-  },
-  {
-    tagName: "c-footer",
-    component: CFooter,
-  },
+  { tagName: "c-navbar", component: CNavbar },
+  { tagName: "c-footer", component: CFooter },
 ];
 
 // Define the components of the app and their tagname
 export const components = [
-    ...layoutComponents,
-    ...routerComponents,
-    {
-        tagName: 'c-test',
-        component: CTest,
-    },
-    {
-        tagName: 'c-post',
-        component: CPost
-    },
-    {
-        tagName: 'c-posts',
-        component: CPosts
-    },
+  ...layoutComponents, // IMPORTANT: Keep this line
+  ...routerComponents, // IMPORTANT: Keep this line
+
+  { tagName: "c-test", component: CTest },
+  { tagName: "c-post", component: CPost },
+  { tagName: "c-posts", component: CPosts },
 ];
