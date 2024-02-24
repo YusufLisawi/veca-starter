@@ -24,5 +24,3 @@ export default class CPosts extends HTMLElement {
     `;
     }
 }
-
-customElements.define('c-posts', CPosts);

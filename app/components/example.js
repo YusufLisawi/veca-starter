@@ -1,4 +1,4 @@
-export default class CNavComponent extends HTMLElement {
+export default class CTest extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
@@ -43,4 +43,3 @@ export default class CNavComponent extends HTMLElement {
 
 
 }
-customElements.define("c-nav", CNavComponent);

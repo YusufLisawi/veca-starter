@@ -21,4 +21,3 @@ export default class CHome extends HTMLElement {
   }
 }
 
-customElements.define("c-home", CHome);

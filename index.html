@@ -7,16 +7,12 @@
     <base href="../app/">
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/app.css">
-    <script src="router/router-outlet.js" defer type="module"></script>
-    <script src="router/c-link.js" defer type="module"></script>
     <!-- <link rel="stylesheet" href="assets/bootstrap.min.css"> -->
 </head>
 <body>
-    <c-link href="/">Home</c-link>
-    <c-link href="/posts">Posts</c-link>
-    <c-link href="/test">Test</c-link>
-
+    <c-navbar></c-navbar>
     <router-outlet></router-outlet>
+    <c-footer></c-footer>
     
     <script src="app.js" type="module"></script>
     <!-- <script src="assets/bootstrap.min.js"></script> -->

@@ -1,3 +1,6 @@
+import RouterOutler from "./router-outlet.js"
+import CLink from "./c-link.js"
+
 export default class Router {
   static instance = null;
 
@@ -16,7 +19,6 @@ export default class Router {
     }
     return Router.instance;
   }
-
 
   addRoute(path, component) {
     this.routes.push({ path, component });
@@ -51,7 +53,7 @@ export default class Router {
   async #renderCurrentRoute() {
     const path = window.location.pathname;
     const matchedRoute = this.#findRoute(path);
-  
+
     if (!matchedRoute || !matchedRoute.component) {
       console.error(`No route matched for ${path}`);
       return;
@@ -63,20 +65,20 @@ export default class Router {
       return;
     }
 
+    // Loading and instantiating the component
     try {
-      const module = await import(matchedRoute.component);
-      const Component = module.default;
+      const ComponentPromise = matchedRoute.component(); // This is now always a function returning a promise
+      const Component =
+        (await ComponentPromise).default || (await ComponentPromise); // Handle both ES modules and normal objects
       let componentInstance;
-      if (Object.keys(matchedRoute.params).length > 0) {
-        componentInstance = await new Component(matchedRoute.params);
-      }
-      else {
-        componentInstance = await new Component();
-      }
+      if (Object.keys(matchedRoute.params).length > 0)
+        componentInstance = new Component(matchedRoute.params);
+      else componentInstance = new Component();
+
       outlet.innerHTML = "";
       outlet.appendChild(componentInstance);
     } catch (err) {
-      console.error(`Failed  to load component for route ${path}:`, err);
+      console.error(`Failed to load component for route ${path}:`, err);
     }
   }
 
@@ -84,3 +86,15 @@ export default class Router {
     this.#renderCurrentRoute();
   }
 }
+
+// IMPORTANT !!
+export const routerComponents = [
+  {
+    tagName: "router-outlet",
+    component: RouterOutler,
+  },
+  {
+    tagName: "c-link",
+    component: CLink,
+  },
+];

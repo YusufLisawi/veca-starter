@@ -22,5 +22,3 @@ export default class CPost extends HTMLElement {
     `;
     }
 }
-
-customElements.define('c-post', CPost);
