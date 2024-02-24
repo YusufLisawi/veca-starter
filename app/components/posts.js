@@ -1,4 +1,4 @@
-export default class CPosts extends HTMLElement {
+export default class Posts extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });

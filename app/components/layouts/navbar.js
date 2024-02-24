@@ -1,4 +1,4 @@
-class CNavbar extends HTMLElement {
+class Navbar extends HTMLElement {
   constructor() {
     super();
   }
@@ -21,4 +21,4 @@ class CNavbar extends HTMLElement {
   }
 }
 
-export default CNavbar;
+export default Navbar;

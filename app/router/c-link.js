@@ -1,6 +1,6 @@
 import Router from "./router.js";
 
-export default class CLink extends HTMLElement {
+export default class Link extends HTMLElement {
     constructor() {
       super();
       this.attachShadow({ mode: 'open' });

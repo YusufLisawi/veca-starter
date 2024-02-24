@@ -1,5 +1,5 @@
 import RouterOutler from "./router-outlet.js"
-import CLink from "./c-link.js"
+import Link from "./c-link.js"
 
 export default class Router {
   static #instance = null;
@@ -95,6 +95,6 @@ export const routerComponents = [
   },
   {
     tagName: "c-link",
-    component: CLink,
+    component: Link,
   },
 ];

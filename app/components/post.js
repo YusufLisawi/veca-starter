@@ -1,4 +1,4 @@
-export default class CPost extends HTMLElement {
+export default class Post extends HTMLElement {
     constructor(params) {
         console.log(params)
         super();

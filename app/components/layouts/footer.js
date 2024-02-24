@@ -1,4 +1,4 @@
-class CFooter extends HTMLElement {
+class Footer extends HTMLElement {
     constructor() {
         super();
     }
@@ -21,4 +21,4 @@ class CFooter extends HTMLElement {
     }
 }
 
-export default CFooter;
+export default Footer;

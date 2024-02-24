@@ -1,4 +1,4 @@
-export default class CHome extends HTMLElement {
+export default class Home extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
@@ -21,4 +21,4 @@ export default class CHome extends HTMLElement {
   }
 }
 
-customElements.define("c-home", CHome);
+customElements.define("c-home", Home);

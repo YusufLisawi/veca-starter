@@ -1,4 +1,4 @@
-export default class CTest extends HTMLElement {
+export default class Test extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
