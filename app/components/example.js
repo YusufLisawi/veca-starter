@@ -22,14 +22,10 @@ export default class CTest extends HTMLElement {
             }
         }
     }
+    
     connectedCallback() {
-        var template = /*html*/`
-            <h1>test ${this.complete}</h1>
-            <button>increment</butt>
-        `;
+        this.render();
 
-
-        this.shadowRoot.innerHTML = template;
         var btn = this.shadowRoot.querySelector('button');
 
         btn.addEventListener('click',() => {
@@ -41,5 +37,11 @@ export default class CTest extends HTMLElement {
     increment() {
     }
 
+    render() {
+        this.shadowRoot.innerHTML = /*html*/ `
+            <h1>Counter ${this.complete}</h1>
+            <button>increment</butt>
+        `;
+    }
 
 }

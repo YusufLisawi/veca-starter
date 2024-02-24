@@ -2,22 +2,22 @@ import RouterOutler from "./router-outlet.js"
 import CLink from "./c-link.js"
 
 export default class Router {
-  static instance = null;
+  static #instance = null;
 
   constructor(routes = []) {
-    if (Router.instance) {
-      return Router.instance;
+    if (Router.#instance) {
+      return Router.#instance;
     }
     this.routes = routes;
     window.addEventListener("popstate", this.#renderCurrentRoute.bind(this));
-    Router.instance = this;
+    Router.#instance = this;
   }
 
   static getInstance() {
-    if (!Router.instance) {
-      Router.instance = new Router();
+    if (!Router.#instance) {
+      Router.#instance = new Router();
     }
-    return Router.instance;
+    return Router.#instance;
   }
 
   addRoute(path, component) {
