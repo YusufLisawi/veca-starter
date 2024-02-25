@@ -16,7 +16,7 @@ export class Core {
         return Core.#instance;
     }
 
-    static getInstance() {
+    static get instance() {
         if (!Core.#instance) {
             Core.#instance = new Core();
         }

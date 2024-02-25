@@ -4,7 +4,7 @@ export default class Buttons extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.store = Store.getInstance();
+    this.store = Store.instance();
   }
 
   connectedCallback() {

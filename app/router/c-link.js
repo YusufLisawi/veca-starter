@@ -14,7 +14,7 @@ export default class Link extends HTMLElement {
       this.shadowRoot.querySelector('a').addEventListener('click', (e) => {
         e.preventDefault();
         // Access the singleton Router instance for navigation
-        const router = Router.getInstance();
+        const router = Router.instance();
         if (router) {
           router.navigate(href);
         } else {

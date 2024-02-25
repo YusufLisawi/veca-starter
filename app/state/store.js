@@ -14,7 +14,7 @@ class Store {
     Store.#instance = this;
   }
 
-  static getInstance() {
+  static get instance() {
     return new Store(); // Get instance or create new one
   }
 

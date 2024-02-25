@@ -13,7 +13,7 @@ export default class Router {
     Router.#instance = this;
   }
 
-  static getInstance() {
+  static get instance() {
     return new Router();
   }
 
