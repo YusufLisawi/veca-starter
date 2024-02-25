@@ -4,6 +4,7 @@ export default class Post extends HTMLElement {
         super();
         this.attachShadow({ mode: 'open' });
         this.params = params;
+        document.title = `Post ${this.params.id}`;
     }
 
     static get observedAttributes() {

@@ -2,6 +2,7 @@ export default class Home extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    document.title = "Home";
   }
 
   static get observedAttributes() {
@@ -16,7 +17,7 @@ export default class Home extends HTMLElement {
 
   render() {
     this.shadowRoot.innerHTML = /*html*/ `
-        <h1>Home</h1>
+        <c-counter></c-counter>
     `;
   }
 }

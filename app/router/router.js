@@ -14,10 +14,7 @@ export default class Router {
   }
 
   static getInstance() {
-    if (!Router.#instance) {
-      Router.#instance = new Router();
-    }
-    return Router.#instance;
+    return new Router();
   }
 
   addRoute(path, component) {
