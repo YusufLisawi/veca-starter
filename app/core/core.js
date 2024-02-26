@@ -4,22 +4,18 @@ import { ComponentRegistry } from "./component-registry.js";
 
 export class Core {
     static #instance = null;
+
     constructor() {
-        if (!Core.#instance) {
-            Core.#instance = this;
-        } else {
-            throw new Error('use instance');
+        if (Core.#instance) {
+            return Core.#instance;
         }
 
         ComponentRegistry.register(components);
 
-        return Core.#instance;
+        Core.#instance = this;
     }
 
     static get instance() {
-        if (!Core.#instance) {
-            Core.#instance = new Core();
-        }
-        return Core.#instance;
+        return new Core();
     }
 }

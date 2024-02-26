@@ -25,4 +25,4 @@ The project utilizes npm for package management and includes scripts for develop
 
 VECA integrates third-party assets like Bootstrap for styling and UI components, enhancing the visual presentation of the application.
 
-Overall, VECA aims to provide a minimalist yet powerful framework for building SPAs using vanilla JavaScript, offering essential features for modern web applications while keeping overhead to a minimum.
+# Documentation

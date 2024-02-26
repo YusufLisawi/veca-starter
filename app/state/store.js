@@ -1,51 +1,28 @@
-import { initialState } from "./initialState.js";
-
-class Store {
-  #state = initialState;
-  #listeners = new Set();
-  static #instance = null;
-
-  constructor() {
-    if (Store.#instance) {
-      return Store.#instance;
-    }
-
-    this.#listeners = new Set();
-    Store.#instance = this;
-  }
-
-  static get instance() {
-    return new Store(); // Get instance or create new one
+export default class Store {
+  constructor(initialState = {}) {
+    this.state = initialState;
+    this.listeners = new Set();
   }
 
   getState() {
-    return { ...this.#state };
+    return this.state;
   }
 
   setState(newState) {
-    this.#state = { ...this.#state, ...newState };
-    this.notifyListeners();
+    this.state = { ...this.state, ...newState };
+    this.notify();
   }
 
   subscribe(listener) {
-    this.#listeners.add(listener);
+    this.listeners.add(listener);
     return () => {
-      this.#listeners.delete(listener);
+      this.listeners.delete(listener);
     };
   }
 
-  notifyListeners() {
-    for (const listener of this.#listeners) {
-      listener(this.getState());
+  notify() {
+    for (const listener of this.listeners) {
+      listener();
     }
   }
-
-  resetState() {
-    this.#state = {};
-    this.notifyListeners();
-  }
-
-  // Additional features coming soon
 }
-
-export default Store;

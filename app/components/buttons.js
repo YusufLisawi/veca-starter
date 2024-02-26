@@ -1,10 +1,9 @@
-import Store from "../state/store.js";
+import { counterStore as store } from "../state/counterStore.js";
 
 export default class Buttons extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.store = Store.instance();
   }
 
   connectedCallback() {
@@ -17,17 +16,14 @@ export default class Buttons extends HTMLElement {
 <button id="increment">+</button>
 `;
 
-    let { count } = this.store.getState();
-    this.shadowRoot
-      .getElementById("increment")
-      .addEventListener("click", () => {
-        this.store.setState({ count: count + 1 }); // Update count in Store
-      });
+    this.shadowRoot.getElementById("increment").addEventListener(
+      "click",
+      () => store.increment()
+    );
 
-    this.shadowRoot
-      .getElementById("decrement")
-      .addEventListener("click", () => {
-        this.store.setState({ count: count - 1 }); // Update count in Store
-      });
+    this.shadowRoot.getElementById("decrement").addEventListener(
+      "click",
+      () => store.decrement()
+    );
   }
 }

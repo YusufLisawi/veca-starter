@@ -1,15 +1,14 @@
-import Store from "../state/store.js";
+import { counterStore as store } from "../state/counterStore.js";
 
 export default class Counter extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-    this.store = Store.instance();
   }
 
   connectedCallback() {
     this.render();
-    this.unsubscribe = this.store.subscribe(() => {
+    this.unsubscribe = store.subscribe(() => {
       this.render();
     });
   }
@@ -19,7 +18,7 @@ export default class Counter extends HTMLElement {
   }
 
   render() {
-    const { count } = this.store.getState();
+    const { count } = store.getState();
     this.shadowRoot.innerHTML = /*html*/ `
       <style>
         /* Add styling here */
