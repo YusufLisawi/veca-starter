@@ -7,7 +7,7 @@ export class Core {
 
     constructor() {
         if (Core.#instance) {
-            return Core.#instance;
+            throw new Error('Use instance');
         }
 
         ComponentRegistry.register(components);

@@ -6,10 +6,10 @@ export default class Router {
 
 	constructor(routes = []) {
 		if (Router.#instance) {
-			return Router.#instance;
+			throw new Error('Use instance');
 		}
-		this.routes = routes;
 		window.addEventListener("popstate", this.#renderCurrentRoute.bind(this));
+		this.routes = routes;
 		Router.#instance = this;
 	}
 

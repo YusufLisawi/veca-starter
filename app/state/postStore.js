@@ -1,4 +1,4 @@
-import { Http } from "../http/http.js";
+import Http from "../http/http.js";
 import Store from "./store.js";
 
 class PostStore extends Store {

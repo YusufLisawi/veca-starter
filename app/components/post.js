@@ -1,4 +1,4 @@
-import { Http } from "../http/http.js";
+import Http from "../http/http.js";
 
 export default class Post extends HTMLElement {
 	constructor(params) {

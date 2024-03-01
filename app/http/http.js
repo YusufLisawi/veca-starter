@@ -1,8 +1,8 @@
-import { Authentication } from "../auth/Authentication.js";
+import Authentication from "../auth/Authentication.js";
 import { config } from "../config.js";
 import Router from "../router/router.js";
 
-export class Http {
+export default class Http {
     static #instance = null;
 
     constructor() {
