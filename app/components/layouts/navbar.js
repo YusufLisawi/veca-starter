@@ -14,7 +14,6 @@ class Navbar extends HTMLElement {
             <nav>
                 <c-link href="/">Home</c-link>
                 <c-link href="/posts">Posts</c-link>
-                <c-link href="/test">Test</c-link>
             </nav>
         `;
     this.innerHTML = template;

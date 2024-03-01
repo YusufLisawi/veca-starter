@@ -16,6 +16,6 @@ export class Core {
     }
 
     static get instance() {
-        return new Core();
+        return Core.#instance || new Core();
     }
 }

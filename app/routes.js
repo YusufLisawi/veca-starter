@@ -1,4 +1,3 @@
-import Test from "./components/example.js";
 import Post from "./components/post.js";
 import Posts from "./components/posts.js";
 
@@ -15,9 +14,5 @@ export const routes = [
   {
     path: "/posts/:id",
     component: () => Promise.resolve(Post),
-  },
-  {
-    path: "/test",
-    component: () => Promise.resolve(Test),
   },
 ];

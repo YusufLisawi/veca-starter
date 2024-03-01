@@ -1,4 +1,4 @@
-import { counterStore as store } from "../state/counterStore.js";
+import { counterStore } from "../state/counterStore.js";
 
 export default class Buttons extends HTMLElement {
   constructor() {
@@ -18,12 +18,12 @@ export default class Buttons extends HTMLElement {
 
     this.shadowRoot.getElementById("increment").addEventListener(
       "click",
-      () => store.increment()
+      () => counterStore.increment()
     );
 
     this.shadowRoot.getElementById("decrement").addEventListener(
       "click",
-      () => store.decrement()
+      () => counterStore.decrement()
     );
   }
 }
