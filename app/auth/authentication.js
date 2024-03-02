@@ -11,7 +11,7 @@ export default class Authentication {
         Authentication.#instance = this;
     }
 
-    get instance() {
+    static get instance() {
         return Authentication.#instance || new Authentication();
     }
 
@@ -27,8 +27,8 @@ export default class Authentication {
         this._callbacks.push(callback);
     }
 
-    async doAuthentication(email, password) {
-        const user = { user: { email, password } };
+    async doAuthentication(username, password) {
+        const user = { username, password };
         try {
             const response = await fetch(config.rest_url + 'auth/login', {
                 method: 'POST',
@@ -38,17 +38,30 @@ export default class Authentication {
                 },
                 body: JSON.stringify(user)
             });
-            const res = await response.json();
-            if (res.user) {
-                this.auth = res.user;
-                this._callbacks.forEach(callback => callback(res.user));
-                return res.user;
-            } else {
-                throw new Error(res.errors);
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.message);
             }
+            this.auth = data;
+            this._callbacks.forEach(callback => callback(data));
+            return data;
         } catch (error) {
             console.error('Error during authentication:', error);
             throw error;
+        }
+    }
+
+    logout() {
+        this.auth = null;
+        this._callbacks.forEach(callback => callback(null));
+    }
+
+    async testAuthentication() {
+        try {
+            await this.doAuthentication('kminchelle', '0lelplR');
+            console.log('Current authentication status:', Authentication.instance.auth);
+        } catch (error) {
+            console.error('Authentication error:', error);
         }
     }
 }

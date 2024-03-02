@@ -3,24 +3,24 @@ import { postStore } from "../state/postStore.js";
 export default class SearchPost extends HTMLElement {
     constructor() {
         super();
-        this.attachShadow({ mode: 'open' });
         this.input;
     }
-
+    
     connectedCallback() {
         this.render();
     }
 
     render() {
-        this.shadowRoot.innerHTML = /*html*/`
-        <form method="get" >
-            <input type="text" name="search" placeholder="Search post...">
-            <button type="submit">Search</button>
+        this.innerHTML = /*html*/`
+        <form class="form-inline mb-4">
+            <div class="form-group">
+                <input type="text" class="form-control mr-2" name="search" placeholder="Search post...">
+            </div>
         </form>
         `;
 
-        this.shadowRoot.querySelector('form').addEventListener('submit', this.#onSubmit.bind(this));
-        this.input = this.shadowRoot.querySelector('input');
+        this.querySelector('form').addEventListener('submit', this.#onSubmit.bind(this));
+        this.input = this.querySelector('input');
     }
 
     #onSubmit(event) {

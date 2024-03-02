@@ -1,17 +1,16 @@
 import Router from "./router.js";
 
-export default class Link extends HTMLElement {
+export default class Link extends HTMLAnchorElement {
     constructor() {
       super();
-      this.attachShadow({ mode: 'open' });
     }
   
     connectedCallback() {
       const href = this.getAttribute('href');
       const text = this.getAttribute('text') || this.innerHTML;
-      this.shadowRoot.innerHTML = `<a class="c-link" href="${href}" style="cursor: pointer;">${text}</a>`;
+      this.innerHTML = text;
   
-      this.shadowRoot.querySelector('a').addEventListener('click', (e) => {
+      this.addEventListener('click', (e) => {
         e.preventDefault();
         // Access the singleton Router instance for navigation
         const router = Router.instance;

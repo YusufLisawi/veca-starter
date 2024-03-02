@@ -93,5 +93,6 @@ export const routerComponents = [
 	{
 		tagName: "c-link",
 		component: Link,
+		extends: "a",
 	},
 ];

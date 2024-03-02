@@ -3,7 +3,6 @@ import { counterStore as store } from "../state/counterStore.js";
 export default class Counter extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
@@ -19,10 +18,7 @@ export default class Counter extends HTMLElement {
 
   render() {
     const { count } = store.getState();
-    this.shadowRoot.innerHTML = /*html*/ `
-      <style>
-        /* Add styling here */
-      </style>
+    this.innerHTML = /*html*/ `
       <h1>Counter App</h1>
       <p>Count: ${count}</p>
       <c-buttons></c-buttons>

@@ -4,20 +4,6 @@ html {
 
 
 body {
-    margin: 1rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f4f4f4;
-
-}
-
-c-navbar > nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: 1rem;
 }
 
 c-footer {

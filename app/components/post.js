@@ -3,7 +3,6 @@ import Http from "../http/http.js";
 export default class Post extends HTMLElement {
 	constructor(params) {
 		super();
-		this.attachShadow({ mode: "open" });
 		this.id = params.id;
 		document.title = `Post ${this.id}`;
 		this.post = {};
@@ -40,14 +39,6 @@ export default class Post extends HTMLElement {
 
 	render() {
 		let content;
-		const styles = /*html*/ `
-        <style>
-        .content {
-            max-width: 800px;
-            padding: 40px;
-        }
-        </style>
-        `;
 
 		if (this.loading) {
 			content = "Loading...";
@@ -67,6 +58,6 @@ export default class Post extends HTMLElement {
             `;
 		}
 
-		this.shadowRoot.innerHTML = styles + /*html*/ `<div class="content">${content}</div>`;
+		this.innerHTML = /*html*/`<div class="content">${content}</div>`;
 	}
 }

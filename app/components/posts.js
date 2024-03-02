@@ -1,12 +1,10 @@
-// Posts.js
 import { postStore } from "../state/postStore.js";
 
 export default class Posts extends HTMLElement {
 	constructor() {
 		super();
-		this.attachShadow({ mode: "open" });
 		document.title = "Posts";
-		this.unsubscribe = null; // Initialize unsubscribe function
+		this.unsubscribe = null;
 	}
 
 	static get observedAttributes() {
@@ -40,23 +38,25 @@ export default class Posts extends HTMLElement {
 		if (loading) {
 			content = "Loading..."; // Display loading message
 		} else if (errors) {
-			content = `Error: ${errors}`; // Display error message
+			content = `<div class="alert alert-danger" role="alert">Error: ${errors}</div>`; // Display error message with Bootstrap alert
 		} else {
 			const postsHtml = posts.map((post) => this.getPostTemplate(post)).join("");
 			content = `<ul>${postsHtml}</ul>`;
 		}
 
-		this.shadowRoot.innerHTML = /*html*/ `
-            <h1>Posts</h1>
-			<c-searchpost></c-searchpost>
-            ${content}
+		this.innerHTML = /*html*/ `
+            <div class="container">
+                <h1 class="mt-5">Posts</h1>
+                <c-searchpost class="mb-3"></c-searchpost>
+                ${content}
+            </div>
         `;
 	}
 
 	getPostTemplate(post) {
 		return /*html*/ `
-		<li>
-			<c-link href="/posts/${post.id}">${post.title}</c-link>
+		<li class="list-group-item pt-2">
+			<a is="c-link" href="/posts/${post.id}">${post.title}</a>
 		</li>`;
 	}
 }
