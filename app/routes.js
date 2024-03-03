@@ -15,4 +15,8 @@ export const routes = [
     path: "/posts/:id",
     component: () => Promise.resolve(Post),
   },
+  {
+    path: "/asdf/asdf/asdf",
+    component: () => Promise.resolve(Posts),
+  },
 ];

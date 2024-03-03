@@ -1,10 +1,11 @@
 {
   "name": "veca",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Vanilla Environment & Components Architecture",
   "main": "src/app.js",
   "scripts": {
-    "dev": "live-server --entry-file=./index.html",
+    "start": "docker-compose up",
+    "dev": "live-server --entry-file=./public/index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

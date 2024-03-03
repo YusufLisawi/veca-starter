@@ -26,3 +26,13 @@ The project utilizes npm for package management and includes scripts for develop
 VECA integrates third-party assets like Bootstrap for styling and UI components, enhancing the visual presentation of the application.
 
 # Documentation
+
+## Installation
+
+You can get started by installing the `CLI` to help with initiating the project and generate components
+```
+    npm install -g veca-cli
+    veca create-project <project-name>
+```
+
+or you can simply clone this repo
